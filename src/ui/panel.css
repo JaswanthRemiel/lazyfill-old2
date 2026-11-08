@@ -1,0 +1,2 @@
+/* The panel lives in a fixed 360x467 iframe, so it never scrolls as a page. */
+html, body, #root { width: 360px; height: 467px; overflow: hidden; background: transparent; }

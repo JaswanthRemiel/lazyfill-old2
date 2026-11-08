@@ -1,0 +1,9 @@
+<!doctype html>
+<html><head><meta charset="utf-8" /><title>sheet</title>
+<style>html,body{margin:0;background:#c9ccd1}.g{display:grid;grid-template-columns:repeat(3,360px);gap:16px;padding:16px;width:max-content}iframe{border:0;width:360px;height:467px;display:block}</style></head>
+<body><div class="g" id="g"></div>
+<script>
+const items=(new URLSearchParams(location.search).get('s')||'').split('|');
+const g=document.getElementById('g');
+for(const it of items){const f=document.createElement('iframe');f.src='/dev/panel.html'+it;g.appendChild(f)}
+</script></body></html>

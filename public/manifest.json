@@ -1,0 +1,90 @@
+{
+  "manifest_version": 3,
+  "name": "lazyfill - Job Application Autofill",
+  "short_name": "lazyfill",
+  "version": "1.0.0",
+  "description": "Autofill job applications, track every one you send, and draft answers with AI. Your data stays in your own account.",
+  "minimum_chrome_version": "114",
+  "homepage_url": "https://jaswanthremiel.github.io/lazyfill/",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "action": {
+    "default_title": "lazyfill",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "options_ui": {
+    "page": "dashboard.html#/settings",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "unlimitedStorage",
+    "alarms",
+    "activeTab",
+    "storage",
+    "tabs",
+    "notifications",
+    "scripting",
+    "contextMenus",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "*://*.greenhouse.io/*",
+    "*://*.myworkdayjobs.com/*",
+    "*://*.lever.co/*",
+    "*://*.ashbyhq.com/*",
+    "*://*.bamboohr.com/*",
+    "*://*.smartrecruiters.com/*",
+    "*://*.icims.com/*",
+    "*://*.jobvite.com/*",
+    "*://*.adp.com/*",
+    "*://ats.rippling.com/*",
+    "*://*.comeet.co/*",
+    "https://firestore.googleapis.com/*",
+    "https://identitytoolkit.googleapis.com/*",
+    "https://securetoken.googleapis.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.openai.com/*"
+  ],
+  "content_scripts": [
+    {
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_end",
+      "all_frames": true,
+      "exclude_matches": [
+        "*://*.linkedin.com/*"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "panel.html"
+      ],
+      "use_dynamic_url": true
+    }
+  ]
+}

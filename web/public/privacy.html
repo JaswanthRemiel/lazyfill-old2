@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Privacy policy · lazyfill</title><meta name="robots" content="index,follow"><style>
+:root{color-scheme:light dark;--fg:#111113;--bg:#fff;--muted:#6e6e73;--line:rgba(0,0,0,.1)}
+@media (prefers-color-scheme:dark){:root{--fg:#f5f5f7;--bg:#000;--muted:#98989f;--line:rgba(255,255,255,.14)}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:46rem;margin:0 auto;padding:3rem 1.25rem 5rem}
+h1{font-size:2rem;letter-spacing:-.02em;margin:.2rem 0 .4rem}h2{font-size:1.15rem;margin:2.2rem 0 .4rem;letter-spacing:-.01em}
+p,li{color:var(--fg)}.muted{color:var(--muted);font-size:.9rem}ul{padding-left:1.2rem}li{margin:.25rem 0}
+a{color:inherit}table{border-collapse:collapse;width:100%;font-size:.92rem;margin:.6rem 0}th,td{text-align:left;padding:.55rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+header a{text-decoration:none;font-weight:600}.note{border:1px solid var(--line);border-radius:14px;padding:.8rem 1rem;margin:1.2rem 0;font-size:.92rem}
+</style></head><body><main><header><a href="./">&larr; lazyfill</a></header>
+<h1>Privacy policy</h1>
+<p class="muted">Effective 8 November 2026. Publisher: Jaswanth Remiel AG (&ldquo;I&rdquo;, &ldquo;me&rdquo;). Contact: open an issue on the <a href="https://github.com/JaswanthRemiel/lazyfill/issues">project&rsquo;s GitHub page</a> (please do not post personal data there).</p>
+<div class="note">lazyfill is an independent project. It is not affiliated with, endorsed by or sponsored by any employer, job board, applicant tracking system, browser vendor or AI provider. Product and company names belong to their owners.</div>
+
+<h2>What lazyfill is</h2>
+<p>lazyfill is a Chrome extension (and a small web page) that fills in job applications from a profile you keep, tracks the applications you send, and can write draft answers with an AI service you connect. This policy says what it stores, where it goes, and how to delete it.</p>
+
+<h2>What is stored, and why</h2>
+<table>
+<tr><th>Data</th><th>Why</th><th>Where</th></tr>
+<tr><td><b>Account:</b> email address, a password (stored only as a salted hash by Firebase Authentication; I never see it), whether the email is verified</td><td>To sign you in and keep your data private to you</td><td>Firebase Authentication</td></tr>
+<tr><td><b>Profile:</b> what you type or import: name, contact details, address, links, work history, education, skills, job preferences, optional demographic answers (gender, race or ethnicity, sexual orientation, veteran status, disability status), your answer bank and saved answers</td><td>To fill application forms for you</td><td>Cloud Firestore under your user ID; a copy is cached in your browser</td></tr>
+<tr><td><b>Resume file</b> (PDF or image, up to about 700 KB)</td><td>To attach it to applications that ask for one</td><td>Cloud Firestore; a copy is cached in your browser</td></tr>
+<tr><td><b>Application tracker:</b> job title, company, job page address, platform, location, job description text, status, dates, your notes</td><td>To show you what you applied to</td><td>Cloud Firestore; a copy is cached in your browser</td></tr>
+<tr><td><b>Saved answers:</b> the question and the answer you gave on a form after you pressed Autofill. Passwords, ID or card numbers, security codes and dates of birth are never saved.</td><td>To fill the same question next time</td><td>Cloud Firestore; a copy is cached in your browser</td></tr>
+<tr><td><b>Reports</b> you choose to send: your description and optional screenshot</td><td>To fix problems</td><td>Cloud Firestore</td></tr>
+<tr><td><b>Settings:</b> your AI key and model names, theme, prompt template</td><td>To run the features you turn on</td><td>The AI key stays only in this browser. The prompt template is also in Firestore.</td></tr>
+</table>
+
+<h2>What lazyfill reads on web pages</h2>
+<p>lazyfill runs on the pages you visit so it can notice a job application form and fill it. It reads form fields, their labels, and (to name the job) the page title, company and description. This happens in your browser. Nothing is sent to me for pages that are not job applications. On a page it recognises as a job application, the job title, company, address and description are kept in your browser for the session and saved to your tracker when you autofill or submit.</p>
+
+<h2>AI features (optional)</h2>
+<p>If you add a Gemini or OpenAI API key, then <b>only when you use an AI feature</b> your browser sends the following straight to that provider (not to me): for <i>Import with AI</i>, images of your resume pages, their text and their links; for <i>Generate with lazyfill</i>, the question you selected, a summary of your profile (your contact details are left out), and the job&rsquo;s title, company and description. The provider handles it under its own terms and privacy policy. Free-tier plans of some providers, Google&rsquo;s Gemini API among them, may use what you send to improve their products; paid plans generally do not. Please read your provider&rsquo;s terms. If you never add a key, nothing is sent to any AI service.</p>
+
+<h2>Who can see your data</h2>
+<ul>
+<li><b>You.</b> Firestore rules allow only your signed-in, email-verified account to read or write your data.</li>
+<li><b>Google</b>, as the host of Firebase Authentication and Cloud Firestore, acting as my processor. Servers may be outside your country.</li>
+<li><b>Your AI provider</b>, only for the requests described above.</li>
+<li><b>Me</b>, technically: as the owner of the Firebase project I can open stored data in the Firebase console. I will not read your data except to keep the service running, fix a problem you report, protect against abuse or security issues, or comply with the law.</li>
+</ul>
+<p>I do not sell your data, rent it, use it for advertising, use it for credit or lending decisions, or share it with anyone else. There are no analytics, trackers or ads in the extension or on the web page.</p>
+
+<h2>Keeping and deleting your data</h2>
+<ul>
+<li>Your data is kept until you delete it.</li>
+<li><b>Delete everything:</b> in the extension, open the dashboard, then Settings, then <i>Delete my account</i>. This deletes your cloud data and your account, and clears the extension&rsquo;s data in your browser. Copies in Google&rsquo;s backups are removed on Google&rsquo;s schedule.</li>
+<li><b>Take a copy first:</b> the Applications page exports CSV and JSON, and Profiles exports JSON.</li>
+<li>Removing the extension clears what it holds in your browser but does not delete your cloud account; use <i>Delete my account</i> first.</li>
+</ul>
+
+<h2>Your rights</h2>
+<p>Depending on where you live (for example the EU/UK under the GDPR, or California under the CCPA/CPRA) you may have the right to access, correct, delete, export or restrict the use of your data, and to complain to a regulator. Most of this you can do yourself in the app as above; for anything else open an issue on the <a href="https://github.com/JaswanthRemiel/lazyfill/issues">project&rsquo;s GitHub page</a> and ask for a private way to reach me, without including personal data in the issue. Where the GDPR applies, my legal basis is providing the service you asked for (contract) and, for the optional AI features, your choice to use them (consent), which you can withdraw by not using them or removing your key.</p>
+
+<h2>Security</h2>
+<p>Data travels over HTTPS. Access is limited by Firebase Authentication and Firestore security rules. Email verification is required before any data is saved. No system is perfectly secure; keep your password private and your AI key secret.</p>
+
+<h2>Children</h2>
+<p>lazyfill is not directed at children and is not for anyone under 16.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes in a way that matters, I will update the date above and, for significant changes, say so in the extension.</p>
+</main></body></html>

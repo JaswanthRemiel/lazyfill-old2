@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* dark mode is a class on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Design tokens, named like shadcn/ui so components read the same way. */
+:root {
+  --background: #ffffff;
+  --foreground: #111113;
+  --card: #ffffff;
+  --muted: #f5f5f7;
+  --muted-foreground: #6e6e73;
+  --subtle: #fafafa;
+  --border: rgb(0 0 0 / 0.09);
+  --input: rgb(0 0 0 / 0.16);
+  --primary: #111113;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f7;
+  --accent: #ececf0;
+  --destructive: #d70015;
+  --success: #1d8a3f;
+  --ring: rgb(0 0 0 / 0.28);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.06);
+  color-scheme: light;
+}
+.dark {
+  --background: #000000;
+  --foreground: #f5f5f7;
+  --card: #1c1c1e;
+  --muted: #1c1c1e;
+  --muted-foreground: #98989f;
+  --subtle: #0b0b0c;
+  --border: rgb(255 255 255 / 0.12);
+  --input: rgb(255 255 255 / 0.2);
+  --primary: #f5f5f7;
+  --primary-foreground: #000000;
+  --secondary: #2c2c2e;
+  --accent: #2c2c2e;
+  --destructive: #ff453a;
+  --success: #32d74b;
+  --ring: rgb(255 255 255 / 0.35);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.5), 0 12px 32px rgb(0 0 0 / 0.5);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-ring: var(--ring);
+  --shadow-card: var(--shadow);
+  --animate-fade-in: fade-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pop-in: pop-in 0.34s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+}
+
+@keyframes fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pop-in { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: scale(1); } }
+
+@layer base {
+  * { border-color: var(--border); }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--foreground);
+    background: var(--background);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+  }
+  button, input, select, textarea { font: inherit; letter-spacing: inherit; }
+  button:not(:disabled), [role="button"] { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+}
+
+.scroll-thin { scrollbar-width: thin; scrollbar-color: var(--input) transparent; }
